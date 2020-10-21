@@ -103,13 +103,25 @@ object Main extends App {
     @tailrec
     def appendStr[T](list: List[T], str: String): String = list match {
         case Nil => str.dropRight(2)
-        case head :: tail => {
-          appendStr(tail, str + head + ", ")
-        }
+        case head :: tail => appendStr(tail, str + head + ", ")
       }
     appendStr(list, "")
   }
 
   println(createStringWithCommasFromListTail(dniTygodnia))
+
+
+  println("Zadanie 4")
+  println("Zadanie 4a")
+
+  def createStringWithCommasFromListFoldl(list: List[String]): String = {
+    list.foldLeft(""){ (acc, item) =>
+      if(acc.isEmpty) acc + item
+      else acc + ", " + item
+    }
+  }
+
+  println(createStringWithCommasFromListFoldl(dniTygodnia))
+
 
 }
