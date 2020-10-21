@@ -124,4 +124,16 @@ object Main extends App {
   println(createStringWithCommasFromListFoldl(dniTygodnia))
 
 
+  println("Zadanie 4b")
+
+  def createStringWithCommasFromListFoldR(list: List[String]): String = {
+    list.foldRight(""){ (acc, item) =>
+      if(acc.isEmpty) acc + item
+      else acc + ", " + item
+    }
+  }
+
+  println(createStringWithCommasFromListFoldR(dniTygodnia))
+
+
 }
