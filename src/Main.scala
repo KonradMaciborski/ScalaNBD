@@ -198,8 +198,29 @@ object Main extends App {
   for(n <- texts) println(toInt(n))
 
 
-
   println("\nZadanie 8\n")
+
+  def returnListWithNoZero(list: List[Int]): List[Int] = {
+
+    @tailrec
+    def accNewList(list: List[Int], listR: List[Int]): List[Int] = list match{
+      case Nil => listR
+      case head :: tail => {
+        if(head == 0) accNewList(tail, listR)
+        else accNewList(tail, listR.appended(head))
+      }
+    }
+    accNewList(list, List.empty[Int])
+  }
+
+  var noZeros = ""
+  for(wrt <- returnListWithNoZero(List[Int] (1, 2, 3, 0, 4, 0, 1))){
+    noZeros += wrt + ", "
+  }
+  println(noZeros.dropRight(2))
+
+
+  println("\nZadanie 9\n")
 
 
 
