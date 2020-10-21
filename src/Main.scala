@@ -1,3 +1,5 @@
+import sun.security.ec.point.ProjectivePoint.Mutable
+
 import scala.annotation.tailrec
 
 
@@ -126,14 +128,47 @@ object Main extends App {
 
   println("Zadanie 4b")
 
-  def createStringWithCommasFromListFoldR(list: List[String]): String = {
+  def createStringWithCommasFromListFoldr(list: List[String]): String = {
     list.foldRight(""){ (acc, item) =>
+      if(item.isEmpty) acc + item
+      else acc + ", " + item
+    }
+  }
+
+  println(createStringWithCommasFromListFoldr(dniTygodnia))
+
+
+  println("Zadanie 4c")
+
+  def createStringWithCommasFromListFoldlOnlyP(list: List[String]): String = {
+    list.filter(_.toLowerCase()
+                 .startsWith("p")).foldLeft(""){ (acc, item) =>
       if(acc.isEmpty) acc + item
       else acc + ", " + item
     }
   }
 
-  println(createStringWithCommasFromListFoldR(dniTygodnia))
+  println(createStringWithCommasFromListFoldlOnlyP(dniTygodnia))
 
+
+
+  println("\nZadanie 5\n")
+
+  val produktCena = Map (
+    "Owoce" -> 20d,
+    "Warzywa" -> 15d,
+    "Owoce Morza" -> 25d,
+    "Mięso" -> 30d
+  )
+  println("Przed zmianą:")
+  for(i <- produktCena) println(i._1 + " - " + i._2)
+  println()
+
+  val produktCena10 = produktCena.transform((_, v) => v * 0.9)
+  println("Przed zmianie:")
+  for(i <- produktCena10) println(i._1 + " - " + i._2)
+
+
+  println("\nZadanie 6\n")
 
 }
