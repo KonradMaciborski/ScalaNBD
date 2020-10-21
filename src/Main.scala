@@ -222,7 +222,26 @@ object Main extends App {
 
   println("\nZadanie 9\n")
 
+  def increaseEveryElemByOne(list: List[Int]) = list.map(x => x + 1)
 
+  var list = List[Int] (1, 2, 3, 4, 5, 6, 7)
+  println("Lista przed inkrementacją: " + list)
+  list = increaseEveryElemByOne(list)
+  println("Lista po inkrementacji: " + list)
+
+
+  println("\nZadanie 10\n")
+
+  val realNumbers = List[Double](Math.PI, -Math.E, 5.5, 10.2, 15.9, 2, 4, 7, 8.8, 21.37, -2.6, -7.7, -5)
+
+  def returnListOfAbsValInRange(list: List[Double], r1: Int, r2: Int): List[Double] = {
+    list.filter(x => x >= r1)
+        .filter(x => x <= r2)
+        .map(x => x.abs)
+  }
+
+  println("Lista przed filtracją: " + realNumbers)
+  println("Lista po filtracji: " + returnListOfAbsValInRange(realNumbers, -5, 12))
 
 
 }
