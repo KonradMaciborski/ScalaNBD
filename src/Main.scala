@@ -182,8 +182,26 @@ object Main extends App {
   printTuple(tuple1)
   printTuple(tuple2)
 
+
   println("\nZadanie 7\n")
 
-  //val miesoOpt: Option[String] = "Mięso"
+  val texts = List[String] ("1", "jeden", "2", "dwa")
+
+  def toInt(s: String): Option[Int] = {
+    try {
+      Some(Integer.parseInt(s))
+    } catch {
+      case _: Exception => None
+    }
+  }
+
+  for(n <- texts) println(toInt(n))
+
+
+
+  println("\nZadanie 8\n")
+
+
+
 
 }
