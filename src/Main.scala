@@ -17,7 +17,7 @@ object Main extends App {
            "Niedziela"
   )
 
-  println("Zadanie 1a")
+  println("Zadanie 1a\n")
 
   var napisDniTygodnia = ""
 
@@ -34,7 +34,7 @@ object Main extends App {
   println(napisDniTygodnia)
 
 
-  println("Zadanie 1b")
+  println("\nZadanie 1b\n")
 
   napisDniTygodnia = ""
 
@@ -50,7 +50,7 @@ object Main extends App {
   println(napisDniTygodnia)
 
 
-  println("Zadanie 1c")
+  println("\nZadanie 1c\n")
 
   napisDniTygodnia = ""
 
@@ -66,8 +66,8 @@ object Main extends App {
   println(napisDniTygodnia)
 
 
-  println("Zadanie 2")
-  println("Zadanie 2a")
+  println("\nZadanie 2")
+  println("Zadanie 2a\n")
 
   napisDniTygodnia = ""
 
@@ -81,7 +81,7 @@ object Main extends App {
   println(napisDniTygodnia)
 
 
-  println("Zadanie 2b")
+  println("\nZadanie 2b\n")
 
   napisDniTygodnia = ""
 
@@ -96,7 +96,7 @@ object Main extends App {
   println(napisDniTygodnia)
 
 
-  println("Zadanie 3")
+  println("\nZadanie 3\n")
 
   napisDniTygodnia = ""
 
@@ -113,8 +113,8 @@ object Main extends App {
   println(createStringWithCommasFromListTail(dniTygodnia))
 
 
-  println("Zadanie 4")
-  println("Zadanie 4a")
+  println("\nZadanie 4")
+  println("Zadanie 4a\n")
 
   def createStringWithCommasFromListFoldl(list: List[String]): String = {
     list.foldLeft(""){ (acc, item) =>
@@ -126,7 +126,7 @@ object Main extends App {
   println(createStringWithCommasFromListFoldl(dniTygodnia))
 
 
-  println("Zadanie 4b")
+  println("\nZadanie 4b\n")
 
   def createStringWithCommasFromListFoldr(list: List[String]): String = {
     list.foldRight(""){ (acc, item) =>
@@ -138,11 +138,12 @@ object Main extends App {
   println(createStringWithCommasFromListFoldr(dniTygodnia))
 
 
-  println("Zadanie 4c")
+  println("\nZadanie 4c\n")
 
   def createStringWithCommasFromListFoldlOnlyP(list: List[String]): String = {
     list.filter(_.toLowerCase()
-                 .startsWith("p")).foldLeft(""){ (acc, item) =>
+                 .startsWith("p")
+               ) .foldLeft(""){ (acc, item) =>
       if(acc.isEmpty) acc + item
       else acc + ", " + item
     }
@@ -170,5 +171,19 @@ object Main extends App {
 
 
   println("\nZadanie 6\n")
+
+  val tuple1 = ("Konrad", 25, 114.2)
+  val tuple2 = ('k', Math.PI, true)
+
+  def printTuple[A, B, C](tup: (A, B, C)): Unit = {
+    println(tup._1 + " - " + tup._2 + " - " + tup._3)
+  }
+
+  printTuple(tuple1)
+  printTuple(tuple2)
+
+  println("\nZadanie 7\n")
+
+  //val miesoOpt: Option[String] = "Mięso"
 
 }
